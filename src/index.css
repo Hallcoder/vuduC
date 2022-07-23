@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 @layer utilities{
+*{
+padding:0;
+margin:0;
+}
+body{
+overflow-x:hidden;
+}
+#footer li,h1{
+color:white;
+margin-bottom:2vh;
+}
+#footer h1{
+font-weight:bolder;
+font-size:1.3em;
+}
+.back{
+z-index:1;
+}
+::-webkit-scrollbar{
+  display:none;
+ }
  .slide{
    height:65vh;
    background-size:cover;

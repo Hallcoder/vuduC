@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom'
 import Logo from '../../assets/logo.png'
 function NavBar() {
     return ( 
-        <div className="flex h-[8vh] justify-around bg-[#1e5e94] text-white font-semibold  w-full fixed top-0">
+        <div className="flex h-[8vh] back justify-around  bg-[#1e5e94] text-white font-semibold  w-full fixed top-0">
             <div name='logoAndLinks' className='flex ml-2 w-[45%] items-center'>
             <ul className='list-none justify-around w-[25vw] flex items-center'>
                 <li><NavLink to='/'><img src={Logo} alt="Go to Homepage" className="h-[80%] w-[4vw] rounded-sm bg-[#1e5e94]" /></NavLink></li>
