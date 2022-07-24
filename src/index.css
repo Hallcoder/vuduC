@@ -42,7 +42,7 @@ z-index:1;
    background-size:cover;
    margin-top:4em;
    width:90%;
+  /* background-image: url('https://images2.vudu.com/uiEntry/46169/placard-1500.jpg'); */
    position:relative;
-   background-image: url('https://images2.vudu.com/uiEntry/46169/placard-1500.jpg');
  }
 }
