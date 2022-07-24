@@ -5,6 +5,8 @@
 *{
 padding:0;
 margin:0;
+box-sizing:border-box;
+font-family:sans-serif;
 }
 body{
 overflow-x:hidden;
@@ -17,11 +19,20 @@ margin-bottom:2vh;
 font-weight:bolder;
 font-size:1.3em;
 }
+strong{
+color:blue;
+}
 .back{
 z-index:1;
 }
 ::-webkit-scrollbar{
   display:none;
+ }
+ .ulDisplay{
+  border-style: solid;
+  border-radius: 5px;
+  z-index:1;
+  border-color: black;
  }
  .slide{
    height:65vh;
