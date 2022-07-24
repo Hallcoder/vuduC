@@ -11,6 +11,9 @@ font-family:sans-serif;
 body{
 overflow-x:hidden;
 }
+.hoverable{
+transition:all 4000ms;
+}
 #footer li,h1{
 color:white;
 margin-bottom:2vh;
