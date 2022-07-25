@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../components/Banner';
 import NavBar from '../components/common/NavBar';
 import B1 from '../assets/images/banner1.jpg'
@@ -9,7 +9,13 @@ import B5 from '../assets/images/banner5.jpg'
 import MovieSection from '../components/MovieSection';
 import TrendingSlideShow from '../components/TrendingSlideShow';
 import Footer from '../components/Footer';
-function Home() {
+import Popular from '../utils/getPopularMovies';
+ function Home() {
+    const [popularMovies,setPopularMovies] = useState([])
+    useEffect(()=>{
+        Popular().then(data => setPopularMovies(data.items));
+    },[])
+    console.log(popularMovies)  
     const movies = [
         {id:1},
         {id:2},
@@ -30,7 +36,7 @@ function Home() {
         <div>
         <NavBar />
         </div>
-        <div className='flex justify-around flex-col'>
+        <div className='flex justify-around mt-6 flex-col'>
             <TrendingSlideShow />
             <MovieSection title={'$4.99 Summer Weekend Deals'} movies={movies}/>
             <hr />

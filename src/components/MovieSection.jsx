@@ -7,7 +7,7 @@ function MovieSection({title,movies}) {
       <Header title={title} movies={movies} /> 
       <div className='flex flex-row justify-around overflow-scroll'>
       {movies.map(movie => {
-        return <MovieBanner key={Math.random()}/>
+        return <MovieBanner key={Math.random()} movie={movie}/>
       })} 
       </div>
     </div> 
