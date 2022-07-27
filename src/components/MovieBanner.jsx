@@ -3,16 +3,16 @@ import * as actions from '../redux/actions'
 import {BsCheck2Circle} from 'react-icons/bs'
 import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
-import sky from '../assets/images/skyscrapper.jpg'
 import Rating from './rating';
-function MovieBanner(movie) {
+import sky from '../assets/images/skyscrapper.jpg'
+function MovieBanner({movie,type}) {
    const dispatch = useDispatch();
    const navigate = useNavigate();
    const handleShowMovie = () => {
        dispatch({
          type: actions.set_currentMovie,
          payload:{
-            movie:movie
+            movie,
          }
        })
        navigate(`/movie/${movie.id}`);
@@ -21,12 +21,12 @@ function MovieBanner(movie) {
         <div className='h-full rounded-md m-1 relative'>
             <div className='peer'>
                 <span className='indent-4 bg-orange-400 rounded-sm w-full h-6 font-bold text-white text-center text-sm inline-block'>Sale</span>
-                <img src={sky} alt="movie banner" className="h-56 min-w-[10em]"/>
+                <img src={type === 'CM' ? sky:movie.image} alt="movie banner" className="h-56 min-w-[10em]"/>
             </div>
             <div onClick={handleShowMovie} className='flex-col bg-black bg-opacity-80 h-[28vh] hidden hover:flex relative bottom-[14em] hoverable top-70 peer-hover:flex'>
-             <h1 className='font-extrabold ml-1 text-sm'>SkyScraper</h1>
+             <h1 className='font-extrabold ml-1 text-sm'>{movie.fullTitle}</h1>
              <div className='flex items-center ml-1'>
-             <p className='text-white text-sm'>2018</p>
+             <p className='text-white text-sm'>{movie.year}</p>
              <span className='bg-gray-400 rounded-md h-4 min-w-[4em] text-center text-white font-semibold p-x-1 inline-block text-xs'>PG-13</span>
              <span className='bg-gray-400 ml-1 rounded-md h-4 min-w-[4em] text-center text-white font-semibold p-x-1 inline-block text-xs'>91min</span>
              </div>

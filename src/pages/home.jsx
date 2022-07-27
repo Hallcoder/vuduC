@@ -6,31 +6,30 @@ import B2 from '../assets/images/banner2.jpg'
 import B3 from '../assets/images/banner3.jpg'
 import B4 from '../assets/images/banner4.jpg'
 import B5 from '../assets/images/banner5.jpg'
+import { useSelector } from 'react-redux';
 import MovieSection from '../components/MovieSection';
 import TrendingSlideShow from '../components/TrendingSlideShow';
 import Footer from '../components/Footer';
-import Popular from '../utils/getPopularMovies';
+import {Popular,comingSoon,InTheaters} from '../utils/movieRequests';
+import setLocalStorage from '../utils/setLocalStorage';
  function Home() {
+    let soonCommingMoviesType = useSelector(state => state.type);
     const [popularMovies,setPopularMovies] = useState([])
+    const [InTheaterMovies,setInTheaterMovies] = useState([])
+    const [ComingSoon,setComingSoon] = useState([])
     useEffect(()=>{
-        Popular().then(data => setPopularMovies(data.items));
+        if(localStorage.getItem('popular').length === 0  && localStorage.getItem('intheaters').length === 0 && localStorage.getItem('comingsoon').length === 0){
+            Popular().then(data => setPopularMovies(data.items));
+            InTheaters().then(data => setInTheaterMovies(data.items));
+            comingSoon().then(data => setComingSoon(data.items));
+        }else{
+            setPopularMovies(JSON.parse(localStorage.getItem('popular')))
+            console.log(localStorage.getItem('popular'));
+            setInTheaterMovies(JSON.parse(localStorage.getItem('intheaters')))
+            setComingSoon(JSON.parse(localStorage.getItem('comingsoon')))
+        }
     },[])
-    console.log(popularMovies)  
-    const movies = [
-        {id:1},
-        {id:2},
-        {id:3},
-        {id:4},
-        {id:5},
-        {id:6},
-        {id:7},
-        {id:8},
-        {id:9},
-        {id:10},
-        {id:10},
-        {id:10},
-        {id:10},
-    ]
+    setLocalStorage(popularMovies,InTheaterMovies,ComingSoon);
     return (
         <div className="h-full bg-[#041c2c] w-screen min-h-fit">
         <div>
@@ -38,23 +37,23 @@ import Popular from '../utils/getPopularMovies';
         </div>
         <div className='flex justify-around mt-6 flex-col'>
             <TrendingSlideShow />
-            <MovieSection title={'$4.99 Summer Weekend Deals'} movies={movies}/>
+            <MovieSection title={'$4.99 Summer Weekend Deals'} movies={ComingSoon}/>
             <hr />
             <Banner image={B1}/>
             <hr />
-            <MovieSection title={'New releases'} movies={movies} />
+            <MovieSection title={'New releases'} movies={InTheaterMovies} />
             <hr />
             <Banner image={B2}/>
             <hr />
-            <MovieSection title={'Top 200 Movies'} movies={movies} />
+            <MovieSection title={'Top 200 Movies'} movies={popularMovies} />
             <hr />
             <Banner image={B3} />
             <hr />
-            <MovieSection title={'Deals of the Week'} movies={movies} />
+            <MovieSection title={'Deals of the Week'} movies={ComingSoon} type={soonCommingMoviesType}/>
             <hr />
             <Banner image={B4} />
             <hr />
-            <MovieSection title={'In Theaters'} movies={movies} />
+            <MovieSection title={'In Theaters'} movies={InTheaterMovies} />
             <hr />
             <Banner image={B5} />
             <hr />
