@@ -5,22 +5,25 @@ import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import Rating from './rating';
 import sky from '../assets/images/skyscrapper.jpg'
+import Badge from './common/Badge';
 function MovieBanner({movie,type}) {
    const dispatch = useDispatch();
    const navigate = useNavigate();
    const handleShowMovie = () => {
-       dispatch({
-         type: actions.set_currentMovie,
-         payload:{
-            movie,
-         }
-       })
-       navigate(`/movie/${movie.id}`);
+      //this works!
+      //  dispatch({
+      //    type: actions.set_currentMovie,
+      //    payload:{
+      //       movie,
+      //    }
+      //  })
+       
+       navigate(`/movie/${movie.id}/${type}`);
    }
     return ( 
         <div className='h-full rounded-md m-1 relative'>
             <div className='peer'>
-                <span className='indent-4 bg-orange-400 rounded-sm w-full h-6 font-bold text-white text-center text-sm inline-block'>Sale</span>
+               <Badge />
                 <img src={type === 'CM' ? sky:movie.image} alt="movie banner" className="h-56 min-w-[10em]"/>
             </div>
             <div onClick={handleShowMovie} className='flex-col bg-black bg-opacity-80 h-[28vh] hidden hover:flex relative bottom-[14em] hoverable top-70 peer-hover:flex'>

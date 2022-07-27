@@ -13,7 +13,7 @@ import Footer from '../components/Footer';
 import {Popular,comingSoon,InTheaters} from '../utils/movieRequests';
 import setLocalStorage from '../utils/setLocalStorage';
  function Home() {
-    let soonCommingMoviesType = useSelector(state => state.type);
+    let moviesCategories = ['CM','POP','INTHE']
     const [popularMovies,setPopularMovies] = useState([])
     const [InTheaterMovies,setInTheaterMovies] = useState([])
     const [ComingSoon,setComingSoon] = useState([])
@@ -24,7 +24,6 @@ import setLocalStorage from '../utils/setLocalStorage';
             comingSoon().then(data => setComingSoon(data.items));
         }else{
             setPopularMovies(JSON.parse(localStorage.getItem('popular')))
-            console.log(localStorage.getItem('popular'));
             setInTheaterMovies(JSON.parse(localStorage.getItem('intheaters')))
             setComingSoon(JSON.parse(localStorage.getItem('comingsoon')))
         }
@@ -37,23 +36,23 @@ import setLocalStorage from '../utils/setLocalStorage';
         </div>
         <div className='flex justify-around mt-6 flex-col'>
             <TrendingSlideShow />
-            <MovieSection title={'$4.99 Summer Weekend Deals'} movies={ComingSoon}/>
+            <MovieSection title={'$4.99 Summer Weekend Deals'} movies={ComingSoon} type={moviesCategories[0]}/>
             <hr />
             <Banner image={B1}/>
             <hr />
-            <MovieSection title={'New releases'} movies={InTheaterMovies} />
+            <MovieSection title={'New releases'} movies={InTheaterMovies} type={moviesCategories[2]}/>
             <hr />
             <Banner image={B2}/>
             <hr />
-            <MovieSection title={'Top 200 Movies'} movies={popularMovies} />
+            <MovieSection title={'Top 200 Movies'} movies={popularMovies} type={moviesCategories[1]} />
             <hr />
             <Banner image={B3} />
             <hr />
-            <MovieSection title={'Deals of the Week'} movies={ComingSoon} type={soonCommingMoviesType}/>
+            <MovieSection title={'Deals of the Week'} movies={ComingSoon} type={moviesCategories[0]}/>
             <hr />
             <Banner image={B4} />
             <hr />
-            <MovieSection title={'In Theaters'} movies={InTheaterMovies} />
+            <MovieSection title={'In Theaters'} movies={InTheaterMovies} type={moviesCategories[2]}/>
             <hr />
             <Banner image={B5} />
             <hr />
