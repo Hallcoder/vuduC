@@ -10,15 +10,15 @@ import { useSelector } from 'react-redux';
 import MovieSection from '../components/MovieSection';
 import TrendingSlideShow from '../components/TrendingSlideShow';
 import Footer from '../components/Footer';
-import {Popular,comingSoon,InTheaters} from '../utils/movieRequests';
+import {Popular,comingSoon,InTheaters, getBoxOfficeMovies} from '../utils/movieRequests';
 import setLocalStorage from '../utils/setLocalStorage';
  function Home() {
-    let moviesCategories = ['CM','POP','INTHE']
+    let moviesCategories = ['CM','POP','INTHE','BX']
     const [popularMovies,setPopularMovies] = useState([])
     const [InTheaterMovies,setInTheaterMovies] = useState([])
     const [ComingSoon,setComingSoon] = useState([])
     useEffect(()=>{
-        if(localStorage.getItem('popular').length === 0  && localStorage.getItem('intheaters').length === 0 && localStorage.getItem('comingsoon').length === 0){
+        if(localStorage.getItem('popular').length === 0  && localStorage.getItem('intheaters').length === 0 && localStorage.getItem('comingsoon').length === 0 && localStorage.getItem('box').length === 0){
             Popular().then(data => setPopularMovies(data.items));
             InTheaters().then(data => setInTheaterMovies(data.items));
             comingSoon().then(data => setComingSoon(data.items));
@@ -44,11 +44,11 @@ import setLocalStorage from '../utils/setLocalStorage';
             <hr />
             <Banner image={B2}/>
             <hr />
-            <MovieSection title={'Top 200 Movies'} movies={popularMovies} type={moviesCategories[1]} />
+            <MovieSection title={'Top 200 Movies'} movies={ComingSoon} type={moviesCategories[0]} />
             <hr />
             <Banner image={B3} />
             <hr />
-            <MovieSection title={'Deals of the Week'} movies={ComingSoon} type={moviesCategories[0]}/>
+            <MovieSection title={'Deals of the Week'} movies={popularMovies} type={moviesCategories[1]}/>
             <hr />
             <Banner image={B4} />
             <hr />

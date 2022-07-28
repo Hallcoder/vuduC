@@ -26,7 +26,7 @@ function MovieBanner({movie,type}) {
                <Badge />
                 <img src={type === 'CM' ? sky:movie.image} alt="movie banner" className="h-56 min-w-[10em]"/>
             </div>
-            <div onClick={handleShowMovie} className='flex-col bg-black bg-opacity-80 h-[28vh] hidden hover:flex relative bottom-[14em] hoverable top-70 peer-hover:flex'>
+            <div onClick={handleShowMovie} className='flex-col bg-black bg-opacity-80 h-[30vh] hidden hover:flex relative bottom-[14em] hoverable top-70 peer-hover:flex'>
              <h1 className='font-extrabold ml-1 text-sm'>{movie.fullTitle}</h1>
              <div className='flex items-center ml-1'>
              <p className='text-white text-sm'>{movie.year}</p>
@@ -40,7 +40,7 @@ function MovieBanner({movie,type}) {
                 <Rating />
              </div>
              <div className='flex text-sm text-white'>
-                <p>Rent/buy</p>
+                <p>Rent/buy</p>git 
                 <p>&nbsp;$3.99</p>
              </div>
             </div>

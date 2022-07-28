@@ -19,3 +19,10 @@ export function setMovieTrailer(trailer,id){
   }
   return;
 }
+export function setLocalReviews(reviews,id){
+  if(reviews && reviews.length !== 0){
+      localStorage.setItem(`reviews-${id}`,JSON.stringify(reviews));
+      return;
+  }
+  return;
+}

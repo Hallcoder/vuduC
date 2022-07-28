@@ -4,12 +4,15 @@ import NavBar from "../components/common/NavBar";
 import MovieIntro from "../components/movieIntro";
 import findById from "../utils/findMovieById";
 import CastsAndCrews from "../components/CastsAndCrews";
-import { getFullCast } from "../utils/movieRequests";
-import { setfullCast } from "../utils/setInfoMovie";
+import { getFullCast, getReviews } from "../utils/movieRequests";
+import { setfullCast, setLocalReviews } from "../utils/setInfoMovie";
+import Reviews from "./../components/Reviews";
+import Header from "../components/common/Header";
 function Movie() {
   //test work works
   //   const currentMovie = useCallback(useSelector((state) => state));
   //   console.log(currentMovie);
+  const [reviews, setReviews] = useState([]);
   const [cast, setCast] = useState([]);
   const params = useParams();
   const movies = () => {
@@ -31,14 +34,31 @@ function Movie() {
     } else {
       setCast(JSON.parse(localStorage.getItem(`cast-${currentMovie.id}`)));
     }
+    if (!localStorage.getItem(`reviews-${currentMovie.id}`)) {
+      getReviews(currentMovie.id)
+        .then((res) => res)
+        .then((data) => {
+          setReviews(data.items)
+          setLocalReviews(data.items, currentMovie.id)
+        });
+    }
+    else{
+      setReviews(JSON.parse(localStorage.getItem(`reviews-${currentMovie.id}`)));
+    }
   }, []);
   return (
     <div className="bg-[#041c2c] min-h-screen flex flex-col">
       <NavBar />
       <div>
         <MovieIntro movie={currentMovie} />
-        <hr />
-        <CastsAndCrews directorList={currentMovie.directorList} starList={currentMovie.starList} actors={cast} />
+        <CastsAndCrews
+          directorList={currentMovie.directorList}
+          starList={currentMovie.starList}
+          actors={cast}
+        />
+      </div>
+      <div>
+        <Reviews reviews={reviews} />
       </div>
     </div>
   );

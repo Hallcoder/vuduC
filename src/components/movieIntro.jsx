@@ -24,13 +24,16 @@ function MovieIntro({ movie }) {
   const [styles, setStyles] = useState({
     display: "none",
   });
-  const handleDisplay = (action) => {
+  const handleDisplay = (action,vidRef) => {
     console.log(action);
     if (action === "show") {
       setStyles({ display: "flex" });
     }
     if (action === "hide") {
       setStyles({ display: "none" });
+      let iframe_tag = vidRef.current;
+      let src  = iframe_tag.src;
+      vidRef.current.src = src;
     }
     return;
   };
