@@ -36,11 +36,11 @@ import setLocalStorage from '../utils/setLocalStorage';
         </div>
         <div className='flex justify-around mt-6 flex-col'>
             <TrendingSlideShow />
-            <MovieSection title={'$4.99 Summer Weekend Deals'} movies={ComingSoon} type={moviesCategories[0]}/>
+            <MovieSection title={'$4.99 Summer Weekend Deals'} movies={InTheaterMovies} type={moviesCategories[2]}/>
             <hr />
             <Banner image={B1}/>
             <hr />
-            <MovieSection title={'New releases'} movies={InTheaterMovies} type={moviesCategories[2]}/>
+            <MovieSection title={'New releases'} movies={popularMovies} type={moviesCategories[1]}/>
             <hr />
             <Banner image={B2}/>
             <hr />

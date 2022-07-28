@@ -17,3 +17,15 @@ export async function comingSoon(){
                           .then(data => data.data)
   return movies
 } 
+export async function getFullCast(id){
+  let image = await axios.get(`https://imdb-api.com/API/FullCast/k_vmkgvvcb/${id}`)
+                         .then(res => res)
+                         .then(data => data.data)
+  return image
+}
+export async function getTrailer(id){
+  let trailer = await axios.get(`https://imdb-api.com/API/FullCast/k_vmkgvvcb/${id}`)
+                           .then(res => res)
+                           .then(data => data.data)
+  return trailer
+}
