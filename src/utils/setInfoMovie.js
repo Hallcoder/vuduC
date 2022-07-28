@@ -1,5 +1,5 @@
 export function setfullCast(cast,id){
-  if(Object.keys(cast).length !== 0){
+  if(cast && Object.keys(cast).length !== 0){
     localStorage.setItem(`cast-${id}`,JSON.stringify(cast))
     return;
   }
@@ -12,8 +12,8 @@ export function setPoster(posters,id){
     }
     return;
 }
-export function setTrailer(trailer,id){
-  if(Object.keys(trailer).length !== 0){
+export function setMovieTrailer(trailer,id){
+  if(trailer && Object.keys(trailer).length !== 0){
       localStorage.setItem(`trailer-${id}`,JSON.stringify(trailer));
       return
   }

@@ -19,17 +19,14 @@ function Movie() {
   };
   const currentMovie = findById(movies(), params.id);
   useEffect(() => {
-    if (
-      localStorage.getItem("intheaters") ||
-      JSON.parse(localStorage.getItem(`cast-${currentMovie.id}`))
-    ) {
+    if (!localStorage.getItem(`cast-${currentMovie.id}`)) {
       getFullCast(currentMovie.id)
         .then((res) => res)
         .then((data) => {
           console.log(data);
-          setCast(data.actors)
-          console.log(cast)
-          setfullCast(data.actors,currentMovie.id)
+          setCast(data.actors);
+          console.log(cast);
+          setfullCast(data.actors, currentMovie.id);
         });
     } else {
       setCast(JSON.parse(localStorage.getItem(`cast-${currentMovie.id}`)));
@@ -41,10 +38,7 @@ function Movie() {
       <div>
         <MovieIntro movie={currentMovie} />
         <hr />
-        <CastsAndCrews
-          directorList={currentMovie.directorList}
-          actors={cast}
-        />
+        <CastsAndCrews directorList={currentMovie.directorList} starList={currentMovie.starList} actors={cast} />
       </div>
     </div>
   );
