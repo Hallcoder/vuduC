@@ -11,7 +11,7 @@ export  function setLocalStorage(popular, intheaters, comingsoon) {
   return;
 }
 export function setTemplate(){
-  localStorage.setItem('popular',[])
-  localStorage.setItem('intheaters',[])
-  localStorage.setItem('comingsoon',[])
+  localStorage.setItem('popular',JSON.stringify([]))
+  localStorage.setItem('intheaters',JSON.stringify([]))
+  localStorage.setItem('comingsoon',JSON.stringify([]))
 }
