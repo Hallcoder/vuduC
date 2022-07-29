@@ -20,6 +20,7 @@ import {setLocalStorage} from '../utils/setLocalStorage';
     const [InTheaterMovies,setInTheaterMovies] = useState([])
     const [ComingSoon,setComingSoon] = useState([])
     useEffect(()=>{
+        document.title = 'Vudu ~ Rent and Rest'
         if(condition || (JSON.parse(localStorage.getItem('popular')).length === 0  && JSON.parse(localStorage.getItem('intheaters')).length === 0 && JSON.parse(localStorage.getItem('comingsoon')).length === 0)){
             Popular().then(data => setPopularMovies(data.items));
             InTheaters().then(data => setInTheaterMovies(data.items));
