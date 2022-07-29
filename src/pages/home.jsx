@@ -13,7 +13,7 @@ import Footer from '../components/Footer';
 import {Popular,comingSoon,InTheaters, getBoxOfficeMovies} from '../utils/movieRequests';
 import setLocalStorage from '../utils/setLocalStorage';
  function Home() {
-    let condition = localStorage.getItem('popular') && localStorage.getItem('comingsoon') && localStorage.getItem('intheaters') && localStorage.getgetgetItem('popular').length === 0  && localStorage.getItem('intheaters').length === 0 && localStorage.getItem('comingsoon').length === 0 && localStorage.getItem('box').length === 0
+    let condition = localStorage.getItem('popular') && localStorage.getItem('comingsoon') && localStorage.getItem('intheaters') && localStorage.getItem('popular').length === 0  && localStorage.getItem('intheaters').length === 0 && localStorage.getItem('comingsoon').length === 0 && localStorage.getItem('box').length === 0
     let moviesCategories = ['CM','POP','INTHE','BX']
     const [popularMovies,setPopularMovies] = useState([])
     const [InTheaterMovies,setInTheaterMovies] = useState([])
