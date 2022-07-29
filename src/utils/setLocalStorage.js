@@ -10,13 +10,4 @@ export  function setLocalStorage(popular, intheaters, comingsoon) {
   }
   return;
 }
-export function setTemplate(){
-  if(localStorage.getItem('popular') && localStorage.getItem('intheaters') && localStorage.getItem('comingsoon')){
-    return;
-  }else{
-    localStorage.setItem('popular',JSON.stringify([]))
-    localStorage.setItem('intheaters',JSON.stringify([]))
-    localStorage.setItem('comingsoon',JSON.stringify([]))
-  }
-  return;
-}
+
