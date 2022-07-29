@@ -11,15 +11,15 @@ import MovieSection from '../components/MovieSection';
 import TrendingSlideShow from '../components/TrendingSlideShow';
 import Footer from '../components/Footer';
 import {Popular,comingSoon,InTheaters, getBoxOfficeMovies} from '../utils/movieRequests';
-import setLocalStorage from '../utils/setLocalStorage';
+import {setLocalStorage, setTemplate} from '../utils/setLocalStorage';
  function Home() {
-    let condition = localStorage.getItem('popular') && localStorage.getItem('comingsoon') && localStorage.getItem('intheaters') && localStorage.getItem('popular').length === 0  && localStorage.getItem('intheaters').length === 0 && localStorage.getItem('comingsoon').length === 0 && localStorage.getItem('box').length === 0
     let moviesCategories = ['CM','POP','INTHE','BX']
     const [popularMovies,setPopularMovies] = useState([])
     const [InTheaterMovies,setInTheaterMovies] = useState([])
     const [ComingSoon,setComingSoon] = useState([])
     useEffect(()=>{
-        if(condition){
+        setTemplate();
+        if( localStorage.getItem('popular').length === 0  && localStorage.getItem('intheaters').length === 0 && localStorage.getItem('comingsoon').length === 0 && localStorage.getItem('box').length === 0){
             Popular().then(data => setPopularMovies(data.items));
             InTheaters().then(data => setInTheaterMovies(data.items));
             comingSoon().then(data => setComingSoon(data.items));

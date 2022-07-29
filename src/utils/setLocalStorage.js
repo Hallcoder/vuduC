@@ -1,4 +1,4 @@
-export default function setLocalStorage(popular, intheaters, comingsoon) {
+export  function setLocalStorage(popular, intheaters, comingsoon) {
   if (popular.length !== 0) {
     localStorage.setItem("popular", JSON.stringify(popular));
   }
@@ -9,4 +9,9 @@ export default function setLocalStorage(popular, intheaters, comingsoon) {
     localStorage.setItem("comingsoon", JSON.stringify(comingsoon));
   }
   return;
+}
+export function setTemplate(){
+  localStorage.setItem('popular',[])
+  localStorage.setItem('intheaters',[])
+  localStorage.setItem('comingsoon',[])
 }
