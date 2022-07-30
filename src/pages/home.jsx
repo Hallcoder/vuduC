@@ -37,7 +37,7 @@ import {setLocalStorage} from '../utils/setLocalStorage';
         <div>
         <NavBar />
         </div>
-        <div className='flex justify-around mt-6 flex-col'>
+        <div className='flex justify-around mt-6 flex-col overflow-x-scroll'>
             <TrendingSlideShow />
             <MovieSection title={'$4.99 Summer Weekend Deals'} movies={InTheaterMovies} type={moviesCategories[2]}/>
             <hr />
