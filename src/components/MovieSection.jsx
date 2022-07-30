@@ -3,7 +3,7 @@ import Header from './common/Header';
 import MovieBanner from './MovieBanner';
 function MovieSection({title,movies,type}) {
     return ( 
-    <div className="flex w-10/12 h-[40vh] m-auto">
+    <div className="w-10/12 h-[40vh] m-auto">
       <Header title={title}/> 
       <div className='flex flex-row justify-around overflow-scroll'>
       {movies.map(movie => {
