@@ -7,10 +7,14 @@ import DropDown from "../Dropdown";
 function NavBar() {
     const [styles,setStyles] = useState({display:'none'});
     const handleDropdownMenu = () => {
-       setStyles({display:'block'})
+       if(styles.display ==='none'){
+           setStyles({display:'block'})
+       }else{
+        setStyles({display:'none'})
+       }
     }
   return (
-    <div className=" flex h-[8vh] back justify-around  bg-[#1e5e94] text-white font-semibold  w-full fixed top-0">
+    <div className="flex h-[8vh] back justify-around  bg-[#1e5e94] text-white font-semibold  w-screen fixed top-0">
       <div className="resUl flex ml-2 w-full justify-start h-full">
         <ul className='flex items-center w-[45%] h-full'>
           <li id="logo">
@@ -18,13 +22,13 @@ function NavBar() {
               <img
                 src={Logo}
                 alt="Go to Homepage"
-                className="h-[80%] w-[4vw] rounded-sm bg-[#1e5e94]"
+                className="h-[100%] w-[10vw] rounded-sm bg-[#1e5e94]"
               />
             </NavLink>
           </li>
         </ul>
         <div className='flex items-center w-[45%] justify-end h-full'>
-          <MdMenu pnClick={handleDropdownMenu}/>
+          <MdMenu onClick={handleDropdownMenu}/>
         <input type="text" className='w-5/12 rounded-md bg-inherit border-2 h-2/6 m-1 text-[0.5em] text-white' placeholder='Search anything...'/>
           <li className='list-none m-1'>
           <BsSearch />
