@@ -33,7 +33,7 @@ import {setLocalStorage} from '../utils/setLocalStorage';
     },[])
     setLocalStorage(popularMovies,InTheaterMovies,ComingSoon);
     return (
-        <div className="h-full bg-[#041c2c]  min-h-fit">
+        <div className="h-full bg-[#041c2c] overflow-x-scroll min-h-fit">
         <div>
         <NavBar />
         </div>
