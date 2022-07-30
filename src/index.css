@@ -37,6 +37,9 @@ z-index:1;
   z-index:1;
   border-color: black;
  }
+ .resUl{
+  display:none;
+ }
  .slide{
    height:65vh;
    background-size:cover;
@@ -44,5 +47,26 @@ z-index:1;
    width:90%;
   /* background-image: url('https://images2.vudu.com/uiEntry/46169/placard-1500.jpg'); */
    position:relative;
+ }
+ @media screen and (min-width:320px) and (max-width:480px){
+  .navRes{
+    display:none;
+  }
+  body{
+    width:100%;
+  }
+  img{
+    object-fit:contain;
+  }
+  .resUl{
+display:flex;
+  }
+  .slide{
+    height:20vh;
+  }
+  #logo{
+    display:flex;
+    height:100%;
+  }
  }
 }

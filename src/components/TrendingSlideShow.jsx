@@ -47,10 +47,10 @@ useEffect(()=>{
     }
 },[currentSlide])
 return ( 
-        <div className='slide m-auto  z-index'>
+        <div className='slide m-auto border h-[30vh]  z-index relative'>
             <SlideShow images={images} currentSlide={currentSlide}/>
-            <MdArrowForwardIos  onClick={() => handleAction('next')} className='absolute top-[45%] left-[98%] text-white bg-opacity-40 h-12 w-8  bg-black'/>
-            <MdArrowBackIosNew  onClick={() => handleAction('previous')} className='absolute top-[45%] text-white bg-opacity-40 h-12 w-8 bg-black' />
+            <MdArrowForwardIos  onClick={() => handleAction('next')} className='absolute top-[45%] hover:flex peer-hover:flex left-[97%] hidden text-white bg-opacity-40 h-12 w-8  bg-black'/>
+            <MdArrowBackIosNew  onClick={() => handleAction('previous')} className='absolute top-[45%] hover:flex peer-hover:flex hidden text-white bg-opacity-40 h-12 w-8 bg-black' />
             <Dots />
         </div>
      );
