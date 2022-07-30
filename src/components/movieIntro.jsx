@@ -38,7 +38,7 @@ function MovieIntro({ movie }) {
     return;
   };
   const buttonClass =
-    "text-white ml-2 font-semibold flex items-center justify-center px-1 w-3/12 h-6 bg-inherit border-2 border-blue-600 rounded-md";
+    "text-white ml-2 min-w-fit font-semibold flex items-center justify-center px-1 w-3/12 h-6 bg-inherit border-2 border-blue-600 rounded-md";
   const {
     image,
     fullTitle,
@@ -66,7 +66,7 @@ function MovieIntro({ movie }) {
             <Rating />
             {imDbRating}
           </span>
-          <div className="w-10/12 flex justify-around mt-4">
+          <div className="w-10/12 flex ml-6 justify-around mt-4">
             <button
               className={buttonClass}
               onClick={() => handleDisplay("show")}
@@ -79,7 +79,7 @@ function MovieIntro({ movie }) {
             </button>
             <button className={buttonClass}>Redeem</button>
           </div>
-          <p className="text-white m-1">
+          <p className="text-white h-3/6 overflow-hidden m-1">
             {plot ? plot : "Plot not available now"}
           </p>
           <div>
@@ -92,7 +92,7 @@ function MovieIntro({ movie }) {
           </div>
         </div>
       </div>
-      <div className="h-full w-6/12">
+      <div className=" optionalImage h-full w-6/12">
         <img src={image} className="h-full object-contain w-full" alt="" />
       </div>
       <div
