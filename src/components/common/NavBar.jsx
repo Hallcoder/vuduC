@@ -22,16 +22,16 @@ function NavBar() {
               <img
                 src={Logo}
                 alt="Go to Homepage"
-                className="h-[100%] w-[10vw] rounded-sm bg-[#1e5e94]"
+                className="h-[100%] w-[12vw] rounded-sm bg-[#1e5e94]"
               />
             </NavLink>
           </li>
         </ul>
-        <div className='flex items-center w-[45%] justify-end h-full'>
-          <MdMenu onClick={handleDropdownMenu}/>
-        <input type="text" className='w-5/12 rounded-md bg-inherit border-2 h-2/6 m-1 text-[0.5em] text-white' placeholder='Search anything...'/>
+        <div className='flex items-center w-[50%] justify-end h-full'>
+          <MdMenu onClick={handleDropdownMenu} className='text-5xl'/>
+        <input type="text" className='w-11/12 rounded-md bg-inherit border-2 h-3/6 m-1 text-[0.5em] text-white' placeholder='Search anything...'/>
           <li className='list-none m-1'>
-          <BsSearch />
+          <BsSearch className='text-3xl'/>
         </li>
           <div style={styles}>
               <DropDown />
